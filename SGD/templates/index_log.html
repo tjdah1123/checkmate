@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    {{ professor }}교수님 <br> <a class="btn btn-link" href="/logout">(로그아웃)</a>
+</div>
+
+<div class="list"><a class="btn btn-success" type="button" href="/attendance">출석</a></div>
+<div class="list"><a class="btn btn-danger" type="button" href="/cam_1">캠_1</a></div>
+<div class="list"><a class="btn btn-danger" type="button" href="/cam_2">캠_2</a></div>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+    }
+</style>
+<style>
+    .list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+    }
+</style>
+{% endblock %}

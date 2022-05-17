@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    {% if user.is_authenticated %}
+    {{ professor.name }}교수님 <a class="btn btn-primary" type="button" href="/logout">(로그아웃)</a>
+    {% else %}
+    <div><a class="btn btn-primary" type="button" href="/login">로그인</a></div>
+    {% endif %}
+</div>
+
+{% if user.is_authenticated %}
+<div class="list"><a class="btn btn-success" type="button" href="/attendance">출석</a></div>
+<div class="list"><a href="/cam_1"><button type="button" class="btn btn-danger" value="캠_1"></a></div>
+{% else %}
+<div class="container">로그인 해주세요!</div>
+{% endif %}
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+    }
+</style>
+<style>
+    .list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+    }
+</style>
+
+{% endblock %}

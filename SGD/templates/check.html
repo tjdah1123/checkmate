@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="list">
+    <button type="button" class="btn btn-outline-dark" onclick="goBack()">이전 페이지로 가기</button>
+</div>
+<script> function goBack() { window.history.back(); } </script>
+
+
+<div class="container my-3">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>본인 사진</th>
+                <th>본인 이름</th>
+                <th>캡처 사진</th>
+                <th>캡처 이름</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if students %}
+            <tr>
+                <td>
+                    <img src="../static/{{ students.check_image }}" height="200">
+                </td>
+                <td>
+                    {{ students.check_name }}
+                </td>
+                <td>
+                    <img src="../static/{{ students.check_image }}" height="200">
+                </td>
+                <td>
+                    {{ students.check_name }}
+                </td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<div class="list">
+    <div class="list"><a class="btn btn-success" type="button" href="/right">출석확인</a></div>
+</div>
+
+<div class="list">
+    <button type="button" class="btn btn-danger" onclick="goBack()">이전으로</button>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+    }
+</style>
+<style>
+    .list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+    }
+</style>
+
+{% endblock %}

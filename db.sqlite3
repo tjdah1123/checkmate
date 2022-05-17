@@ -1,0 +1,19 @@
+db설정 for mysql
+linux환경에서 mysql깔려있으면 settings.py 설정해주고, 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "checkmate",
+        "USER": "checkmate",
+        "PASSWORD": "checkMate1234##",
+        "HOST": "localhost",
+        "PORT": "3306",
+
+    }
+}
+
+terminal에서 mysqlclient를 깔아줘야됨!
+sudo apt-get install libmysqlclient-dev
+pip install mysqlclient
+
+db확인: python manage.py inspectdb

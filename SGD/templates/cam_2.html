@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="list">
+    <button type="button" class="btn btn-outline-dark" onclick="goBack()">이전 페이지로 가기</button>
+</div>
+<script> function goBack() { window.history.back(); } </script>
+
+<div class="list">
+    카메라 화면
+
+    <table>
+        <tr>
+            <td width="50%">
+                여기에 비디오 영상
+                <img src="http://127.0.0.1:8000/detectme" style="width:400px, height:400px" />
+
+            </td>
+            <td width="50%">
+                나의 비디오
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+    }
+</style>
+<style>
+    .list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+    }
+</style>
+{% endblock %}
