@@ -2,7 +2,9 @@ from django.shortcuts import render
 from .models import Professor, CheckStudent
 from django.contrib import messages
 from django.db.models import Q
-
+from django.views.decorators import gzip
+from django.http import StreamingHttpResponse
+from SGD.camera2 import FaceDetect
 
 def index(request):
 
@@ -48,6 +50,16 @@ def attendance(request):
 
 
     return render(request, "attendance.html", context)
+
+def gen(camera):
+    while True:
+        frame = camera.get_frame()
+        yield(b'--frame\r\n'
+              b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
+@gzip.gzip_page
+def detectme(request):
+    return StreamingHttpResponse(gen(FaceDetect()), content_type="multipart/x-mixed-replace;boundary=frame")
 
 def cam_1(request):
 
